@@ -1,118 +1,56 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { Image, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import ProductListingscreen from './Redux/ProductListing/ProductListingscreen'
+import PdfView from './Redux/PdfView'
+import Header from './Src/ReduxExample/Header'
+import Product from './Src/ReduxExample/Product'
+import { ScrollView } from 'react-native-gesture-handler'
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const App = () => {
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+  const Products = [
+    {
+      name: 'Laptop',
+      price: '70000',
+      color: 'Black',
+      Image: 'https://media.istockphoto.com/id/1292038829/photo/laptop-computer-with-blue-pink-lighting-and-blank-screen-place-on-dark-background-3d.webp?b=1&s=170667a&w=0&k=20&c=XPhuSPxXHKjRhVMSWZVHBGeLHj8jhpcVqqHqVGYurW8='
+    },
+    {
+      name: 'Mobile',
+      price: '30000',
+      color: 'Black',
+      Image: 'https://plus.unsplash.com/premium_photo-1681666713747-b784f30eb407?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG1vYmlsZXxlbnwwfHwwfHx8MA%3D%3D'
+    },
+    {
+      name: 'Tv',
+      price: '50000',
+      color: 'Black',
+      Image: 'https://media.istockphoto.com/id/1283423135/photo/led-tv-on-the-dark-wall-in-living-room.webp?b=1&s=170667a&w=0&k=20&c=MjwvJLk8C8zNMWrhquBv34kTVdjyxKNvcI7yec6-Tu4='
+    },
+    
+  ]
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
+    <View>
+      {/* <Main/>  */}
+      {/* <ProductListingscreen/> */}
+      {/* <PdfView/>  */}
+
+      
+      <Header />
+      <ScrollView>
+      {
+        Products.map((item, index) => <Product key={index} item={item} />)
+      }
       </ScrollView>
-    </SafeAreaView>
-  );
+  
+
+    </View>
+  )
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+export default App
 
-export default App;
+const styles = StyleSheet.create({})
