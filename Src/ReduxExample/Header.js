@@ -6,7 +6,7 @@ const Header = () => {
     const [cartItems, setCartItems] = useState(0);
 
     const cartData = useSelector((state) => state.reducer); 
-    
+
     useEffect(() => {
         setCartItems(cartData.length);
     }, [cartData]);
@@ -22,4 +22,4 @@ const Header = () => {
 
 export default Header;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({}); 

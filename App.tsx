@@ -6,6 +6,8 @@ import PdfView from './Redux/PdfView'
 import Header from './Src/ReduxExample/Header'
 import Product from './Src/ReduxExample/Product'
 import { ScrollView } from 'react-native-gesture-handler'
+import StateProps from './Src/State&Props/StateProps'
+import FormControl from './Src/HandlingFormControls.js/FormControl'
 
 const App = () => {
 
@@ -34,9 +36,9 @@ const App = () => {
 
   return (
     <View>
-      {/* <Main/>  */}
-      {/* <ProductListingscreen/> */}
-      {/* <PdfView/>  */}
+       {/* <Main/>  
+      <ProductListingscreen/> 
+       <PdfView/>  */}
 
       
       <Header />
@@ -44,9 +46,12 @@ const App = () => {
       {
         Products.map((item, index) => <Product key={index} item={item} />)
       }
-      </ScrollView>
-  
+      </ScrollView> 
 
+
+ <StateProps/> 
+
+{/* <FormControl/> */}
     </View>
   )
 }

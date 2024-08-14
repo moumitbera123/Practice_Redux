@@ -14,7 +14,7 @@ export const reducer = (state = initialstate, action) => {
                     return item.name != action.data
                 })
                 return [...result]
-        default:
+        default: 
             return state
     }
 
